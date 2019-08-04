@@ -2,12 +2,20 @@ package model;
 
 public class MusicAlbum {
 
-    private String genre;
     private String title;
-    private int year;
     private String artist;
+    private String genre;
+    private int year;
+
 
     public MusicAlbum(){};
+
+    public MusicAlbum(String title,String artist, String genre,  int year ) {
+        this.genre = genre;
+        this.title = title;
+        this.year = year;
+        this.artist = artist;
+    }
 
     public String getGenre() {
         return genre;
@@ -39,5 +47,22 @@ public class MusicAlbum {
 
     public void setArtist(String artist) {
         this.artist = artist;
+    }
+
+    public boolean isValid(){
+        return title != null && !title.isEmpty()
+            && artist != null && !artist.isEmpty()
+            && genre != null && !genre.isEmpty()
+            && year > 1990;
+    }
+
+    @Override
+    public String toString() {
+        return "MusicAlbum{" +
+                "title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", genre='" + genre + '\'' +
+                ", year=" + year +
+                '}';
     }
 }
